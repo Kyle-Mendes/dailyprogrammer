@@ -69,11 +69,6 @@ fn recur(operators: Vec<(char, i32)>, inputs: &Vec<String>) {
     let mut value: i32 = inputs[1].parse().ok().expect("not an int");
     let terms: u32 = inputs[2].parse().ok().expect("not an int");
 
-
-     // Take the operator string -> vector splitting at <space>
-     // turn each value in the vector into a tuple
-     // use a match to get opperator, and pass value
-
     // Start a loop for each term
     let mut n = 0;
     while n <= terms {
