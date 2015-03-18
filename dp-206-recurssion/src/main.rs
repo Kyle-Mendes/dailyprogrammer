@@ -77,6 +77,7 @@ fn recur(operators: Vec<(char, i32)>, inputs: &Vec<String>) {
     // Start a loop for each term
     let mut n = 0;
     while n <= terms {
+        println!("Term {:?}: {:?}", n, value);
         for &i in &operators {
             match i {
                 ('+', x) => value += x,
@@ -86,7 +87,6 @@ fn recur(operators: Vec<(char, i32)>, inputs: &Vec<String>) {
                 (_, _)   => panic!("What did you give me?!"),
             }
         }
-        println!("Term {:?}: {:?}", n, value);
         n += 1;
     }
 }
