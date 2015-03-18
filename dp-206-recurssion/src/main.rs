@@ -42,7 +42,7 @@ fn get_input() -> Vec<String> {
 }
 
 //Takes the operators that the user passed in, and parses them
-//Returns a Vector of a tuple pair of characters, Vec<(char, char)>
+//Returns a Vector of a tuples, Vec<(char, i32)>
 fn get_operators(inputs: &Vec<String>) -> Vec<(char, i32)> {
     let mut pairs = Vec::new();
     let i: &str = &inputs[0];
