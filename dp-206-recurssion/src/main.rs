@@ -77,17 +77,16 @@ fn recur(operators: Vec<(char, i32)>, inputs: &Vec<String>) {
     // Start a loop for each term
     let mut n = 0;
     while n <= terms {
-        for i in operators {
-            println!("{:?}", i);
+        for &i in &operators {
+            match i {
+                ('+', x) => value += x,
+                ('-', x) => value -= x,
+                ('*', x) => value *= x,
+                ('/', x) => value /= x,
+                (_, _)   => panic!("What did you give me?!"),
+            }
         }
-        // match(i.next()) {
-        //     ('+', x) => value += x,
-        //     ('-', x) => value -= x,
-        //     ('*', x) => value *= x,
-        //     ('/', x) => value /= x,
-        //     (_, _)   => panic!("What did you give me?!"),
-        // }
-        // println!("Term {:?}: {:?}", n, value);
+        println!("Term {:?}: {:?}", n, value);
         n += 1;
     }
 }
