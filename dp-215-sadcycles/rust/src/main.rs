@@ -21,7 +21,7 @@ fn main() {
     loop {
         let mut sum: u32 = 0;
         let n = cycle.last().unwrap().clone();          // The last number calculated in the cylce1
-        let numbers = n.chars();   // Converting the string to a vector of characters
+        let numbers = n.chars();                        // Converting the string to a vector of characters
         for n in numbers {
             sum += n.to_digit(10).unwrap().pow(base);   // Raise each character (as a digit) to our base
         }
