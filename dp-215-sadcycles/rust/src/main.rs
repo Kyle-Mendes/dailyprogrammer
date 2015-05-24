@@ -1,5 +1,6 @@
 use std::io;
 use std::string::String;
+use std::iter::Iterator;
 
 fn main() {
     println!("Hello, sailor!  Give me some numbers.");
@@ -17,6 +18,7 @@ fn main() {
 
     let mut cycle = Vec::new();                         // A vector to hold all of the cycled numbers
     cycle.push(number);                                 // Push in our starting value
+    let mut index = 0;
 
     loop {
         let mut sum: u32 = 0;
@@ -26,13 +28,20 @@ fn main() {
             sum += n.to_digit(10).unwrap().pow(base);   // Raise each character (as a digit) to our base
         }
         if cycle.contains(&sum.to_string()) {           // If the sum is already in our cycle, we've looped
+            index = cycle.iter().position(|x| *x == *sum.to_string()).unwrap();
             break;
         }
 
         cycle.push(sum.to_string());                    // Otherwise, add the unique number to the cycle and keep counting.
     }
 
-    for x in cycle {
-        print!("{0}, ", x);
+    let (null, pattern) = cycle.split_at(index);        // Index - 1 because split_at puts the index in the first split
+
+    for x in 0..pattern.len()  {
+        if x == pattern.len() - 1 {
+            println!("{0} ", pattern[x]);
+        } else {
+            print!("{0}, ", pattern[x]);
+        }
     }
 }
