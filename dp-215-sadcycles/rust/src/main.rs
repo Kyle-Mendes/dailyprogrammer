@@ -35,7 +35,7 @@ fn main() {
         cycle.push(sum.to_string());                    // Otherwise, add the unique number to the cycle and keep counting.
     }
 
-    let (null, pattern) = cycle.split_at(index);        // Index - 1 because split_at puts the index in the first split
+    let (null, pattern) = cycle.split_at(index);
 
     for x in 0..pattern.len()  {
         if x == pattern.len() - 1 {
