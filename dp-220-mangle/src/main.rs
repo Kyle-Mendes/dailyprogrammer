@@ -1,4 +1,4 @@
-#![feature(collections)] 
+#![feature(collections)]
 
 fn main() {
     let sentences = vec![ "This challenge doesn't seem so hard.",
@@ -11,27 +11,27 @@ fn main() {
     }
 }
 
-fn mangle(input: &str) { 
+fn mangle(input: &str) {
     println!("Input: {}", input);
-    let s: Vec<&str> = input.split(' ').collect();
+    let s: Vec<&str> = input.split(' ').collect();                            // Separate each word into its own Vector
 
     print!("Output: ");
     for x in 0..s.len() {
-        let chars: Vec<char> = s[x].chars().collect();
-        let mut sorted: Vec<char> = s[x].to_lowercase().chars().collect();
-        sorted.sort();
-        sorted.retain(|&c| c.is_alphanumeric());
+        let chars: Vec<char> = s[x].chars().collect();                        // Create a vector that we will compate to later...
+        let mut sorted: Vec<char> = s[x].to_lowercase().chars().collect();    // Create a vector to sort and print out
+        sorted.sort();                                                        // Sorting...
+        sorted.retain(|&c| c.is_alphanumeric());                              // Dropping all non-alphanumeric characters.
 
         for y in 0..sorted.len() {
-            if y == 0 && chars[0].is_uppercase() {
-                print!("{}", sorted[y].to_uppercase().next().unwrap()); 
-            } else if ! chars[y].is_alphanumeric() {
-                print!("{}{}", chars[y], sorted[y]); 
-            } else { 
-                print!("{}", sorted[y]); 
+            if y == 0 && chars[0].is_uppercase() {                            // If the first character of a word in the original is uppercase, so should this.
+                print!("{}", sorted[y].to_uppercase().next().unwrap());
+            } else if ! chars[y].is_alphanumeric() {                          // If the original word had punctuation, we insert at the correct position
+                print!("{}{}", chars[y], sorted[y]);
+            } else {
+                print!("{}", sorted[y]);                                      // Otherwise, we just print the letter.
             }
         }
-        if x + 1 == s.len() { 
+        if x + 1 == s.len() {                                                 // Finally, we add back our spaces / punctuation
             print!(".")
         } else {
             print!(" ");
