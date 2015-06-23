@@ -1,11 +1,11 @@
 #![feature(collections)]
-
 fn main() {
     let sentences = vec![ "This challenge doesn't seem so hard.",
                           "There are more things between heaven and earth, Horatio, than are dreamt of in your philosophy.",
                           "Eye of Newt, and Toe of Frog, Wool of Bat, and Tongue of Dog.",
                           "Adder's fork, and Blind-worm's sting, Lizard's leg, and Howlet's wing.",
-                          "For a charm of powerful trouble, like a hell-broth boil and bubble."];
+                          "For a charm of powerful trouble, like a hell-broth boil and bubble.",
+                          "Scrooge McDuck."];
     for s in sentences {
         mangle(s);
     }
@@ -23,7 +23,7 @@ fn mangle(input: &str) {
         sorted.retain(|&c| c.is_alphanumeric());                              // Dropping all non-alphanumeric characters.
 
         for y in 0..sorted.len() {
-            if y == 0 && chars[0].is_uppercase() {                            // If the first character of a word in the original is uppercase, so should this.
+            if chars[y].is_uppercase() {                                      // If any character of a word in the original is uppercase, so should this character.
                 print!("{}", sorted[y].to_uppercase().next().unwrap());
             } else if ! chars[y].is_alphanumeric() {                          // If the original word had punctuation, we insert at the correct position
                 print!("{}{}", chars[y], sorted[y]);
