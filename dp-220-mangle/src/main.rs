@@ -1,12 +1,12 @@
 #![feature(collections)] 
 
 fn main() {
-    let sentances = vec![ "This challenge doesn't seem so hard.",
+    let sentences = vec![ "This challenge doesn't seem so hard.",
                           "There are more things between heaven and earth, Horatio, than are dreamt of in your philosophy.",
                           "Eye of Newt, and Toe of Frog, Wool of Bat, and Tongue of Dog.",
                           "Adder's fork, and Blind-worm's sting, Lizard's leg, and Howlet's wing.",
                           "For a charm of powerful trouble, like a hell-broth boil and bubble."];
-    for s in sentances {
+    for s in sentences {
         mangle(s);
     }
 }
